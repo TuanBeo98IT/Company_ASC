@@ -1,0 +1,60 @@
+* Bước 01: git stash -u -m "Name"
+	- Đưa các thay đổi hiện tại trong working directory vào stash để sử dụng sau.
+	
+* Bước 02: git checkout develop
+	- Chuyển về nhánh chính đề cập nhật code mới nhất về.
+	
+* Bước 03: git pull
+	- lấy toàn bộ code từ nhánh chính về local.
+	
+* Bước 04: git checkout tuandx
+	- chuyển qua nhánh hiện tại đang code để tiếp tục thực hiện.
+	
+* Bước 05: git rebase develop
+	- Áp dụng các commit của working branch hiện tại và áp dụng chúng vào HEAD của [branch] 
+		để lịch sử của branch đồng bộ với nhau
+	
+* Bước 06: git stash pop
+	- Áp dụng nội dung stash đã lưu vào working directory và xóa stash đó.
+	
+* Bước 07: Undo Changes 
+	- Undo các file Web.config để không ảnh hưởng đến config chính.
+	
+* Bước 08: Rebuild Solution
+	- Tiến hành Rebuild Solution để kiểm tra code còn lỗi không. 
+		+ Nếu không có lỗi thì tiếp tục các bước tiếp theo.
+		+ Nếu có lỗi thì fix đến khi hết lỗi, sau đó thực hiện các bước tiếp theo.
+	
+* Bước 09: git add .
+	- Dùng để đưa các file vừa tạo mới hoặc vừa chỉnh sửa từ trạng thái Working Directory (thư mục làm việc) 
+		vào trạng thái Staging Area (vùng chuẩn bị). Đây là bước "thông báo" cho Git biết rằng bạn muốn đưa các 
+		file này vào danh sách chuẩn bị lưu trữ ở lần commit tới.
+	- Dấu . (chấm): Đại diện cho tất cả mọi thứ (tất cả các file mới, file thay đổi, hoặc file bị xóa) 
+		nằm trong thư mục hiện tại và các thư mục con của nó.
+	
+* Bước 10: git commit -m "Content"
+	- Lệnh này chính thức lưu lại các file đang ở vùng Staging Area vào lịch sử của Git (Local Repository). 
+		Mỗi lần commit tạo ra một "mốc lịch sử" (checkpoint).
+	- -m: Viết tắt của message (thông điệp/nội dung). Tùy chọn này cho phép viết luôn nội dung mô tả 
+		ngay trên dòng lệnh mà không cần mở trình soạn thảo văn bản phức tạp.
+	
+* Bước 11: git push origin tuandx --force (hoặc viết tắt là git push origin tuandx -f)
+	- git push: Đẩy các đoạn code/commit đã lưu ở máy tính cá nhân (local) lên máy chủ từ xa (remote repository).
+	- origin: Tên mặc định của kho lưu trữ từ xa (remote repository) mà bạn đã liên kết (thường là GitHub/GitLab).
+	- tuandx: Tên nhánh (branch) bạn muốn đẩy lên.
+	- --force (hoặc -f): Từ khóa ép buộc. Bình thường, nếu lịch sử commit trên máy chủ (server) mới hơn hoặc khác với máy của bạn 
+		(ví dụ: người khác vừa push code lên, hoặc bạn vừa dùng lệnh git reset / git commit --amend ở máy mình), 
+		Git sẽ từ chối push để tránh làm mất code. 
+		--force sẽ bỏ qua cảnh báo an toàn đó và bắt server phải nhận hoàn toàn lịch sử hiện tại từ máy bạn, đè bẹp (overwrite) mọi thứ đang có trên server.
+	- Thường chỉ dùng trong các trường hợp sau:
+		+ Bạn làm việc một mình trên nhánh tuandx: Bạn vừa thực hiện sửa lại lịch sử commit trên máy của mình 
+			(như gộp commit bằng rebase, xóa commit lỗi bằng reset, hoặc sửa thông điệp commit), và bây giờ bạn muốn server cập nhật lại chính xác giống hệt máy bạn.
+		+ Cập nhật lại nhánh cá nhân: Khi nhánh tuandx là nhánh riêng của bạn và bạn muốn "làm sạch" nó trước khi tạo Pull Request (PR).
+
+
+	- ⚠️ CẢNH BÁO RỦI RO CỰC KỲ QUAN TRỌNG
+		+ Mất code của người khác: Nếu nhánh tuandx này có nhiều người cùng làm chung, khi bạn dùng --force, code của người khác vừa push lên server trước đó sẽ bị xóa sạch và thay bằng code trên máy của bạn.
+		+ Xung đột dữ liệu: Đồng đội của bạn sẽ gặp lỗi khi họ pull code về tiếp theo.
+
+* Bước 12: lên GitLab tạo Merge Request
+	- vd: https://gitlab.ascvn.vn/asc.ems/org/web/-/merge_requests
