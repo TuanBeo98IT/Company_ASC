@@ -13,6 +13,7 @@ Syncfusion Doc/Xlsio/Pdf
 Entity Framework
 AutoMapper
 Dapper
+
 --Schema
 WEB_ORG_EOFFICE
 WEB_ORG_MES
@@ -30,6 +31,6 @@ WEB_XXX_AMS
 
 --project
 
-ASC.BEND - Eoffice (giangr vien)\
+ASC.BEND - Eoffice (giangr vien)
 ASC.BEND.SV - SV
 ASC.WEB - CMS / tuyển dung/ một cửa
