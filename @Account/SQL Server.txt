@@ -1,0 +1,11 @@
+1. 192.168.0.6
+	- User Name: pmt-ems
+	- Password : pmt_@ms2015
+	
+2. devsql2022.ascvn.com.vn\SQL2022
+	- User Name: sa
+	- Password : AuLac07
+	
+3. devsql2016.ascvn.com.vn\SQL2016
+	- User Name: sa
+	- Password : AuLac07
