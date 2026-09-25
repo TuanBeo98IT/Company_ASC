@@ -1,0 +1,60 @@
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TITLE: CÁCH KHẮC PHỤC KHI ĐÃ TẠO MERGE REQUEST NHƯNG LEADER CHƯA KỊP XỬ LÝ.
+-----------------------------------------------------------------------------------------------
+DESCRIBE: Khắc phục vấn đề khi đã tạo merge request trên gitlab, nhưng chưa được leader merge
+	dẫn đến các commit của người khác mới tạo ghi đè lên. Commit hiện tại của mình bị đẩy xuống
+	dưới.
+	
+###############################################################################################
+Các Bước Thực Hiện
+* Bước 1: git branch
+	- kiểm tra nhánh hiện tại:
+		+ nếu là nhánh cá nhân thì đổi qua nhánh chính.
+		+ nếu đang là nhánh chính thì tiếp tục bước 2.
+	
+* Bước 2: git checkout develop
+	- chuyển qua nhánh chính để pull dữ liệu mới nhất về.
+	
+* Bước 3: git pull
+	- lấy dữ liệu mới nhất từ nhánh chính trên Server về Local.
+	
+* Bước 4: git checkout tuandx
+	- chuyển qua nhánh cá nhân để tiếp tục thực hiện xử lý.
+	
+* Bước 5: git rebase develop
+	- đồng bộ commit, dữ liệu mới nhất từ nhánh chính qua nhánh cá nhân.
+		+ kết quả: "Successfully rebased and updated refs/heads/tuandx." thì đã thành công
+	- nếu có báo lỗi: ví dụ file "ABC.txt"
+		+ Bước 5.1: mở file "ABC.txt" sửa lỗi, sau đó cập nhật dữ liệu đúng nhất
+		+ Bước 5.2: chạy "git add <ABC.txt>"
+		+ Bước 5.3: git rebase develop --continue
+		
+* Bước 6: git status
+		+ On branch tuandx nothing to commit, working tree clean => đã thành công
+* Bước 7: git push
+	- nếu có thông báo "fatal: The current branch tuandx has no upstream branch." 
+		{
+			Ý nghĩa: Bạn gõ git push trên nhánh tuandx, nhưng nhánh này chưa được liên kết (tracking) 
+			với nhánh nào trên server GitLab (origin). Git báo lỗi và hướng dẫn bạn dùng lệnh git push 
+			--set-upstream origin tuandx.
+		}
+		+ nhập lại: "git push --set-upstream origin tuandx"
+	- nếu có lỗi " To https://gitlab.ascvn.vn/asc.ems/org/web.git
+			! [rejected]            tuandx -> tuandx (non-fast-forward)"
+		{
+			Ý nghĩa: Bạn làm theo hướng dẫn và chạy lệnh đẩy code kèm thiết lập upstream. 
+			Tuy nhiên, Git đã từ chối (rejected) vì nhánh tuandx trên server đang có những thay đổi mới 
+			hơn (hoặc khác biệt) so với nhánh trên máy của bạn (máy bạn đang bị "thụt lùi" - behind). 
+			Nếu đẩy thẳng lên sẽ làm mất dữ liệu trên server. Git gợi ý bạn nên dùng git pull trước.
+		}
+		+ nhập lại: "git push --set-upstream origin tuandx --force-with-lease"
+			{
+				Ý nghĩa: Thay vì dùng git pull để gộp code (có thể gây ra conflict phức tạp mà bạn chưa muốn xử lý lúc đó), 
+					bạn đã dùng cờ --force-with-lease kết hợp với --set-upstream.
+
+				Lệnh này có nghĩa là: "Hãy ép buộc đẩy code của tôi lên server để đè lên nhánh tuandx hiện tại, 
+					nhưng hãy kiểm tra xem có ai vừa đẩy code lên trước đó không để tránh ghi đè nhầm công sức của người khác".
+
+				Vì an toàn và hợp lệ, Git đã chấp thuận.
+			}
+* Bước 8: Lên server GitLab kiểm tra lại merge request đã đúng với ban đầu tạo merge hay chưa.
