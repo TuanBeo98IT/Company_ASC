@@ -104,3 +104,47 @@ Các Bước Thực Hiện
 		
 	* Cách này giữ commit Commit_02 như một commit riêng (Git sẽ tạo lại commit Commit_02 với parent mới), 
 	còn thay đổi của Commit_01 sẽ bị loại bỏ.
+	
+	
+	
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+03. TITLE: LẤY LẠI COMMIT SAU KHI ĐÃ PUSH LÊN GITLAB
+----------------------------------------------------------------------------------------------------------------------------------
+03. DESCRIBE: Khi push Commit lên GitLab, nhưng muốn lấy thông tin Commit về để sửa lại.
+	
+##################################################################################################################################
+Các Bước Thực Hiện
+	* Bước 1: git status
+		- kiểm tra trạng thái hiện tại
+		
+	* Bước 2: git checkout tuandx
+		- chuyển qua nhánh cá nhân để lấy commit về
+		
+	* Bước 3: git reset --soft HEAD~1
+		- Đưa commit mới nhất quay lại trạng thái chưa commit (Soft Reset)
+			+ Dùng lệnh sau để lùi lại 1 commit (giúp code của bạn vẫn được giữ nguyên trong máy, 
+			chỉ gỡ bỏ commit vừa push ra khỏi lịch sử tạm thời)
+		
+	* Bước 4: chỉnh sửa lại thông tin cần thay đổi
+		
+	* Bước 5: git add .
+		- thêm lại các file hợp lệ
+		
+	* Bước 6: git commit -m "Context"
+			+ Tạo lại commit mới
+		
+	* Bước 7: git push origin tuandx --force-with-lease
+		- Lưu ý: Chỉ dùng --force-with-lease khi nhánh đó chỉ có một mình bạn làm việc. 
+			Tránh dùng --force thông thường hoặc dùng --force-with-lease nếu nhánh đó đang có người khác 
+			cùng collaborate (nếu có người khác cùng làm chung, họ sẽ bị mất sync code).
+	
+	* Bước 8: git checkout develop
+		
+	* Bước 9: git pull
+			
+	* Bước 10: git checkout tuandx
+	
+	* Bước 11: git rebase develop
+	
+	* Bước 12: git push origin tuandx --force-with-lease
+	
