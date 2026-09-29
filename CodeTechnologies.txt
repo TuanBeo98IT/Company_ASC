@@ -1,0 +1,22 @@
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+01. TITLE: Hệ thống EDU
+----------------------------------------------------------------------------------------------------------------------------------
+02. DESCRIBE: Công nghệ sử dụng
+	
+##################################################################################################################################
+	* Core Technologies
+		+ .NET Framework 4.0
+		+ WinForms - Desktop UI
+		+ Entity Framework 4.0 - ORM
+		+ Dapper - Micro-ORM for stored procedures
+		+ SQL Server - Database
+
+	* Third-Party Libraries
+		+ Syncfusion WinForms - Enhanced UI controls (Grid, Ribbon, Tabs)
+		+ Newtonsoft.Json - JSON serialization
+		+ Microsoft.SqlServer.Management.Smo - SQL Server management
+
+	* Development Tools
+		+ Visual Studio 2013+
+		+ SQL Server Management Studio
+		+ GitLab - Source control
