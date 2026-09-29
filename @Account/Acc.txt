@@ -1,0 +1,17 @@
+* Tài khoản EGOV
+	- link: https://egov.ascvn.com.vn/
+	- Login:
+		+ User Name: 01320019
+		+ Password : 01320019
+		
+* Tài khoản Task
+	- link: https://task.ascvn.com.vn
+	- Login:
+		+ User Name: TuanDX
+		+ Password : Tuanbeo98@
+		
+* Tài khoản GitLab
+	- link: https://gitlab.ascvn.vn
+	- Login:
+		+ User Name: TuanDX
+		+ Password : 6DkTengZ_sS
