@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  https://go.microsoft.com/fwlink/?LinkId=301880
+  -->
+<configuration>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0"/>
+    <add key="webpages:Enabled" value="false"/>
+    <add key="ClientValidationEnabled" value="true"/>
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="VersionJC" value="230"/>
+    <add key="HeThongWeb" value="2"/>
+    <add key="UsePort" value="0"/>
+    <add key="IsUploadLocal" value="0"/>
+    <add key="IsCongPhuHuynh" value="0"/>
+    <add key="ApiPublicKey" value="v1PoM5pW7ewZI3GT1WWpXw"/>
+    <add key="IsWebSinhVien" value="0"/>
+    <add key="NewTheme" value="true"/>
+    <add key="UrlNotify" value=""/>
+    <add key="DomainDev" value="giangvien.dntu.edu.vn"/>
+    <add key="UrlApiMedia" value="https://mediademo.ascvn.com.vn/"/>
+    <add key="UrlApiMediaUpload" value="https://mediademo.ascvn.com.vn/"/>
+    <add key="UrlApiMediaViewCDN" value="https://mediademo.ascvn.com.vn/"/>
+    <add key="UrlApiMediaUploadCDN" value="https://mediademo.ascvn.com.vn/"/>
+    <add key="ASC_EMSKey" value="56e5a0b334c94143da24e707cc6ab1e8"/>
+    <add key="AppKey001" value="edu"/>
+    <add key="AppKey002" value="edu@pmt"/>
+    <add key="AppKey003" value="http://devconnectmng.ascvn.com.vn:8091/V2/DNTU/GetConnection.asmx"/>
+    <add key="UnitCode" value="DNTU"/>
+    <add key="WebRootWeb" value="67pxISPS8PMpPKL0znseqApZYJ1fkUoCpVQZwaPP0HPS3F7MDAOAD4btFlWncZ8fjY4R2Ti3aszqT0EbMrQsK2IOgnp/eBEmx9UtuYkDbzItKESGGTK0Y87rsMGvhSwBfRvOc7uhmmbvdv2oJTYnpGKM8PyfXPelSMymypRT7rgCKu+Y3v87ukw7GvcPT6hkNUn5Ke4PjsfHjT16DFSfAk+ko4CmBfgGjuc3yFJ4EqDMHsT8IUg7Sty9Vtvi4s4HVA02F8ZtSxc="/>
+    <add key="MaximumValueFileDoc" value="536870912"/>
+    <add key="IsWriteLog" value="1"/>
+    <add key="aspnet:MaxJsonDeserializerMembers" value="150000"/>
+    <add key="ASCGateway" value="https://demo-centerservice.ascvn.com.vn"/>
+    <add key="NewCauHinhManHinh" value="true"/>
+    <add key="BaseUrl" value="https://gv-dntu.ascvn.vn/"/>
+    <add key="OnQuartzService" value="true"/>
+    <add key="ClientID" value="7f3942d8-b318-4922-b83f-2d0d6640562c"/>
+    <add key="ClientHash" value="qHwutl7mHE6udYdqnkUgKg"/>
+    <add key="ApiUploadAuthentication_UserName" value="c9ada3bbbc9749bb85bd0682ed2ec187"/>
+    <add key="ApiUploadAuthentication_Password" value="YzlhZGEzYmJiYzk3NDliYjg1YmQwNjgyZWQyZWMxODc="/>
+  </appSettings>
+  <system.web>
+    <globalization culture="vi-VN" uiCulture="vi-VN"/>
+    <compilation targetFramework="4.8" debug="true">
+      <assemblies>
+        <add assembly="System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+        <add assembly="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+        <add assembly="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+        <add assembly="System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+        <add assembly="System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+      </assemblies>
+    </compilation>
+    <httpRuntime targetFramework="4.8" maxRequestLength="1048576"/>
+    <machineKey decryptionKey="4B93D12DB6702479C35FBB3993892F00B22C9E72154CACC7" validationKey="2DA5E79246910A666CA9AE6365D05686088F0FBE014C3B2B2F75E338E56FE6A16ED8F99A7172A7D08FBFAAE44FF0B2973851EC78A1F262653F6AFA04EA8C3CA0"/>
+    <authentication mode="Forms">
+      <forms name="ASC.AUTH" loginUrl="~/login.html" protection="All" timeout="43200" path="/" requireSSL="false" slidingExpiration="true" cookieless="UseCookies" enableCrossAppRedirects="true"/>
+    </authentication>
+    <customErrors mode="Off"/>
+    <!--<customErrors mode="RemoteOnly" defaultRedirect="/404/404.htm"/>-->
+  </system.web>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false"/>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_32bit"/>
+      <remove name="ExtensionlessUrlHandler-ISAPI-4.0_64bit"/>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
+      <add name="ExtensionlessUrlHandler-ISAPI-4.0_32bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0"/>
+      <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0"/>
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"/>
+      <add name="AspNetStaticFileHandler-CSS" path="*.css" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-JS" path="*.js" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-PNG" path="*.png" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-JPG" path="*.jpg" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-GIF" path="*.gif" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-DOC" path="*.doc" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-DOCX" path="*.docx" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-XLS" path="*.xls" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-XLSX" path="*.xlsx" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-PDF" path="*.pdf" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-INFO" path="*.info" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-HTML" path="*.html" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-RAR" path="*.rar" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <add name="AspNetStaticFileHandler-RIP" path="*.rip" verb="GET,HEAD" type="System.Web.StaticFileHandler"/>
+      <remove name="WebServiceHandlerFactory-Integrated"/>
+      <add name="PageHandlerFactory-Integrated-HTML" path="*.html" verb="GET,HEAD,POST,DEBUG" type="System.Web.UI.PageHandlerFactory" resourceType="Unspecified" preCondition="integratedMode"/>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0"/>
+      <remove name="OPTIONSVerbHandler"/>
+      <remove name="TRACEVerbHandler"/>
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"/>
+    </handlers>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="2147483648"/>
+      </requestFiltering>
+    </security>
+    <staticContent>
+      <remove fileExtension=".woff2"/>
+      <mimeMap fileExtension=".woff2" mimeType="font/x-woff"/>
+      <!--<remove fileExtension=".json"/>
+      <mimeMap fileExtension=".json" mimeType="application/json"/>-->
+    </staticContent>
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-1.5.2.14234" newVersion="1.5.2.14234"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-12.0.0.0" newVersion="12.0.0.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35"/>
+        <bindingRedirect oldVersion="0.0.0.0-5.2.4.0" newVersion="5.2.4.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Autofac" publicKeyToken="17863af14b0044da" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-4.9.4.0" newVersion="4.9.4.0"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Configuration.ConfigurationManager" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.1" newVersion="6.0.0.1"/>
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.1" newVersion="6.0.0.1"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
+<!--ProjectGuid: 1FDDB6C3-48BD-4786-A387-C3092FF317DE-->
